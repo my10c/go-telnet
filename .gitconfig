@@ -1,0 +1,50 @@
+#
+# http://www.draconianoverlord.com/2010/03/04/git-config.html
+#
+[core]
+	compression = 0
+
+[user]
+	name = Luc Suryo
+	email = luc@suryo.com
+	editor	= /usr/local/bin/vim
+
+[init]
+	defaultBranch = main
+
+[alias]
+	br	= branch
+	ci	= commit
+	co	= checkout
+	st	= status
+	rc	= commit --amend
+	cp = cherry-pick
+
+	undo	= commit --amend
+	logs	= log --pretty=format:'%h :%an : %ar%n      >> %s <<%n' --abbrev-commit --decorate
+	last 	= log -1 HEAD
+	logdiff	= log -p -1
+	logstat	= log --stat
+	logg    = log --graph --oneline --all
+
+	update	= !"git fetch origin ; git rebase origin"
+	up		= !"git fetch origin ; git rebase origin"
+	restore = !"git restore --staged"
+
+	diffit	= diff --word-diff=color
+	recommit	= commit --amend
+
+[push]
+	default = upstream
+
+[merge]
+	tool	= vimdiff
+
+[pager]
+	branch = false
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
