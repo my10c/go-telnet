@@ -1,6 +1,14 @@
 
 package vars
 
+import (
+	"fmt"
+    "time"
+	"path"
+	"os"
+	"strconv"
+)
+
 var (
     Off    = "\x1b[0m"    // Text Reset
     Black  = "\x1b[1;30m" // Black
@@ -25,5 +33,16 @@ var (
 
     ClearLine   = "\x1b[0G\x1b[2K\x1b[0m\r"
     ClearScreen = "\x1b[H\x1b[2J"
+
+    MyVersion   = "0.1.0"
+    now         = time.Now()
+    MyProgname  = path.Base(os.Args[0])
+    myAuthor    = "Luc Suryo"
+    myCopyright = "Copyright 2026 - " + strconv.Itoa(now.Year()) + " ©Badassops LLC"
+    myLicense   = "License 3-Clause BSD, https://opensource.org/licenses/BSD-3-Clause ♥"
+    myEmail     = "<luc@badassops.com>"
+    MyInfo      = fmt.Sprintf("%s (version %s)\n%s\n%s\nWritten by %s %s\n",
+        MyProgname, MyVersion, myCopyright, myLicense, myAuthor, myEmail)
+    MyDescription = "Simple telnet like program to check if given host + port is accessible"
 )
 
